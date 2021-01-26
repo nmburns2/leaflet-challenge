@@ -8,9 +8,7 @@ d3.json(earthquakeUrl, function (data) {
 
 function createFeatures(earthquakeData) {
     function onEachFeature(feature, layer) {
-        layer.bindPopup("<h3>" + feature.properties.place +
-            "</h3><hr><p><b>Time:</b> " + new Date(feature.properties.time) + "</p>" +
-            "<p><b>Magnitude:</b> " + feature.properties.mag + "</p>");
+        layer.bindPopup("<h4>Location: " + feature.properties.place + "</h4><h4>Date/Time: " + new Date(feature.properties.time) +"</h4><h4>Earthquake Magnitude: " + feature.properties.mag);
     }
 
 
@@ -48,32 +46,6 @@ function createMap(earthquakes) {
         layers: [lightmap, earthquakes]
     });
 
-    // function getColor(d) {
-    //     return d > 5 ? "#B40404" :
-    //         d > 4 ? "#DF0101" :
-    //         d > 3 ? "#FF0000" :
-    //         d > 2 ? "#FE2E2E" :
-    //         d > 1 ? "##FA5858" :
-    //                 "#F78181";
-    // }
-
-    // var legend = L.control({position: 'bottomright'});
-
-    // legend.onAdd = function(myMap) {
-    //   var div = L.DomUtil.create('div', 'legend'),
-    //   magnitude = [4,5,5.4,6,6.5,7],
-    //   labels = []
-      
-    //   for (var i = 0; i < magnituded.length; i++) {
-    //       div.innerHTML +=
-    //       '<i style="background:' + getColor(magnitude[i] + 1) + '"></i>' + magnitude[i] + (magnitude[i + 1] ? '&ndash;' + magnitude[i + 1] + '<br>' : '+');
-    //     }
-
-    //     return div;
-    // };
-
-    // legend.addTo(myMap);
-
 };
 
 function getColor(d) {
@@ -84,4 +56,3 @@ function getColor(d) {
         d > 5 ? "##FA5858" :
                 "#F78181";
 };
-
