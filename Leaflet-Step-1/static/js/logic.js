@@ -6,7 +6,7 @@ d3.json(earthquakeUrl, function (data) {
     createFeatures(data.features)
 });
 
-function createMap(earthquakes) {(
+function createMap(earthquakes) {
     var lightmap = L.tilelayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
         attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
         maxZoom: 20,
@@ -32,7 +32,7 @@ function createMap(earthquakes) {(
 
     var legend = L.control({position: 'bottomright'});
 
-    legend.onAdd = function(myMap) {(
+    legend.onAdd = function(myMap) {
       var div = L.DomUtil.create('div', 'legend'),
       var magnitude = [0,1,2,3,4,5],
       var labels = []
